@@ -1,4 +1,9 @@
+const Operations = require('../infraestrutura/operations')
+
 module.exports = app => {
+
+  const Cliente = new Operations('clientes')
+
   app.get('/clientes', (req, res) => {
     Clientes.lista(res)
   })
