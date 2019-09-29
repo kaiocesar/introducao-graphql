@@ -10,4 +10,5 @@ type Mutation {
 
 type Query {
     status: String!
+    clientes: [Cliente!]!
 }

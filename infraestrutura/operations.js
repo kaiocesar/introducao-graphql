@@ -6,24 +6,23 @@ class Operations {
   }
 
   lista() {
-    cruds[this._entidade].lista()
+    return cruds[this._entidade].lista()
   }
 
   buscaPorId(id) {
-    cruds[this._entidade].buscaPorId(id)
+    return cruds[this._entidade].buscaPorId(id)
   }
 
   adiciona(item) {
-    cruds[this._entidade].adiciona(item)
-
+    return cruds[this._entidade].adiciona(item)
   }
 
   atualiza(novoItem, id) {
-    cruds[this._entidade].atualiza(novoItem, id)
+    return cruds[this._entidade].atualiza(novoItem, id)
   }
 
   deleta(id) {
-    cruds[this._entidade].deleta(id)
+    return cruds[this._entidade].deleta(id)
   }
 }
 

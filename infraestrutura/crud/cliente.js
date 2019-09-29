@@ -3,7 +3,7 @@ const executaQuery = require('../database/queries')
 class Cliente {
   lista(){
     const sql = 'SELECT * FROM Clientes'
-    executaQuery(sql)
+    return executaQuery(sql)
   }
 
   buscaPorId(id) {
@@ -14,7 +14,11 @@ class Cliente {
   adiciona(item) {
     const { nome, cpf } = item
     const sql = `INSERT INTO Clientes(nome, CPF) VALUES('${nome}', '${cpf}')`
-    executaQuery(sql)
+    return executaQuery(sql).then(resposta => ({
+      id: resposta.insertId,
+      nome,
+      cpf
+    }))
   }
 
   atualiza(novoItem, id) {
