@@ -20,7 +20,8 @@ const resolvers = {
     cliente: (root, { id }) => Cliente.buscaPorId(id)
   },
   Mutation: {
-    adicionarCliente: (root, params) => Cliente.adiciona(params)
+    adicionarCliente: (root, params) => Cliente.adiciona(params),
+    atualizarCliente: (root, params) => Cliente.atualiza(params)
   }
 }
 

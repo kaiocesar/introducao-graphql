@@ -21,10 +21,14 @@ class Cliente {
     }))
   }
 
-  atualiza(novoItem, id) {
-    const { nome, cpf } = novoItem
+  atualiza(novoItem) {
+    const { id, nome, cpf } = novoItem
     const sql = `UPDATE Clientes SET nome='${nome}', CPF='${cpf}' WHERE id=${id}`
-    executaQuery(sql)
+    return executaQuery(sql).then(resultado => ({
+      id,
+      nome,
+      cpf
+    }))
   }
 
   deleta(id) {

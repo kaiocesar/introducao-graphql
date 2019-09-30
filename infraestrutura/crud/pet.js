@@ -23,10 +23,10 @@ class Pet {
     }))
   }
 
-  atualiza(novoItem, id) {
-    const { nome, dono, tipo, observacoes } = novoItem
+  atualiza(novoItem) {
+    const { id, nome, dono, tipo, observacoes } = novoItem
     const sql = `UPDATE Pets SET nome='${nome}', donoId=${dono}, tipo='${tipo}', observacoes='${observacoes}' WHERE id=${id}`
-    return executaQuery(sql)
+    return executaQuery(sql).then(cliente => console.log(cliente))
   }
 
   deleta(id) {
