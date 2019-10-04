@@ -66,3 +66,20 @@ mutation {
   }
 }
 ```
+
+#### Retornar os pets com informações dos donos (clientes)
+```
+query {
+  pets {
+    id
+    nome
+    tipo
+    observacoes
+    dono {
+      id
+      nome
+      cpf
+    } 
+  }
+}
+``` 
