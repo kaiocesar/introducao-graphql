@@ -6,7 +6,7 @@ acessar o playground do graphql atráves do link  [http://localhost:4000](http:/
 #### Adicionar um cliente
 ```
 mutation{
-    adicionarCliente(nome:"Bruna Evangelista da Silva", cpf:"38312312131") {
+    adicionarCliente(nome:"Bruna Evangelista", cpf:"12312312131") {
         id
         nome
         cpf
@@ -14,7 +14,7 @@ mutation{
 }
 ```
 
-####  Consultar clientes
+####  Retornar todos os clientes
 ```
 query {
     clientes {
@@ -25,7 +25,7 @@ query {
 }
 ```
 
-####  Consultar cliente
+####  Consultar um cliente em especifico
 ```
 query {
     cliente(id:1) {
@@ -34,4 +34,35 @@ query {
         nome
     }
 } 
+```
+
+#### Alterar dados do cliente
+```
+mutation {
+  atualizarCliente(id: 1, nome: "Kaio Cesar S Paula", cpf: "39400000011") {
+    id
+    nome
+    cpf
+  }
+}
+```
+
+#### Excluir um cliente
+```
+mutation{
+  deletarCliente(id: 2)
+}
+```
+
+#### Adicionar um Pet
+```
+mutation {
+  adicionarPet(nome: "Rex", donoId: 1, tipo: "Cão", observacoes: "Ele é manço mas não abusem!") {
+    id
+    donoId
+    nome
+    tipo
+    observacoes
+  }
+}
 ```
