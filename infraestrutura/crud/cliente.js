@@ -33,7 +33,7 @@ class Cliente {
 
   deleta(id) {
     const sql = `DELETE FROM Clientes WHERE id=${id}`
-    executaQuery(sql)
+    return executaQuery(sql).then((sucesso) => id )
   }
 }
 

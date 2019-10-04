@@ -21,7 +21,8 @@ const resolvers = {
   },
   Mutation: {
     adicionarCliente: (root, params) => Cliente.adiciona(params),
-    atualizarCliente: (root, params) => Cliente.atualiza(params)
+    atualizarCliente: (root, params) => Cliente.atualiza(params),
+    deletarCliente: (root, { id }) => Cliente.deleta(id)
   }
 }
 
