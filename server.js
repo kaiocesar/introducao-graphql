@@ -17,14 +17,15 @@ conexao.connect(erro => {
 const resolvers = {
   Query: {
     status: () => 'server rodando...',
-    clientes: () => Clientes.lista(),
-    cliente: (root, { id }) => Clientes.buscaPorId(id),
+    clientes: () => Clientes.listar(),
+    cliente: (root, { id }) => Clientes.buscarPorId(id),
+    pets: () => Pets.listar()
     
   },
   Mutation: {
-    adicionarCliente: (root, params) => Clientes.adiciona(params),
-    atualizarCliente: (root, params) => Clientes.atualiza(params),
-    deletarCliente: (root, { id }) => Clientes.deleta(id),
+    adicionarCliente: (root, params) => Clientes.adicionar(params),
+    atualizarCliente: (root, params) => Clientes.atualizar(params),
+    deletarCliente: (root, { id }) => Clientes.deletar(id),
     adicionarPet: (root, params) => Pets.adicionar(params)
 
   }

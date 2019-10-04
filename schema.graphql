@@ -6,10 +6,10 @@ type Cliente {
 
 type Pet {
     id: ID!
-    nome: String!
-    donoId: Int!
+    nome: String!    
     tipo: String
     observacoes: String
+    dono: Cliente!
 }
 
 type Mutation {
@@ -23,4 +23,6 @@ type Query {
     status: String!
     clientes: [Cliente!]!
     cliente(id: ID!): Cliente!
+
+    pets: [Pet]!
 }

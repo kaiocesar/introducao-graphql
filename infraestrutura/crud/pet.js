@@ -2,8 +2,22 @@ const executaQuery = require('../database/queries')
 
 class Pet {
   listar() {
-    const sql = 'SELECT * FROM Pets'
-    return executaQuery(sql)
+    const sql = `SELECT Pets.id, Pets.nome, Pets.tipo, Pets.observacoes, \
+      Clientes.nome as donoNome, Clientes.cpf as donoCpf, Clientes.id as donoId \
+      FROM Pets INNER JOIN Clientes ON Clientes.id = Pets.donoId`
+
+    return executaQuery(sql).then(pets => 
+      pets.map(pet => ({
+        id: pet.id,
+        nome: pet.nome,
+        tipo: pet.tipo,
+        observacoes: pet.observacoes,
+        dono: {
+          id: pet.donoId,
+          nome: pet.donoNome,
+          cpf: pet.donoCpf
+        }
+      })))
   }
 
   buscarPorId(id) {
