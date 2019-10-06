@@ -14,14 +14,18 @@ mutation{
 }
 ```
 
-####  Retornar todos os clientes
+####  Retornar todos os clientes e seus respectivos pets
 ```
 query {
-    clientes {
-        id
-        cpf
-        nome
+  clientes {
+    id
+    cpf
+    nome
+    pets {
+      id
+      nome
     }
+  }
 }
 ```
 
