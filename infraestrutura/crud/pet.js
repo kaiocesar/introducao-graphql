@@ -28,14 +28,24 @@ class Pet {
   adicionar(item) {
     const { nome, donoId, tipo, observacoes } = item
     const sql = `INSERT INTO Pets(nome, donoId, tipo, observacoes)\
-        VALUES('${nome}', ${donoId}, '${tipo}', '${observacoes}')`
-    return executaQuery(sql).then(resposta => ({
-      id: resposta.insertId,
-      nome,
-      donoId,
-      tipo,
-      observacoes
-    }))
+        VALUES('${nome}', ${donoId}, '${tipo}', '${observacoes}');\
+        SELECT * FROM Clientes WHERE id = ${donoId}`
+
+    return executaQuery(sql).then(dados => {
+      const pet = dados[0]
+      const clientes = dados[1]
+      
+      return clientes.map(cliente => ({
+          dono: {...cliente},
+          id: pet.insertId,
+          nome,
+          tipo,
+          observacoes
+        
+      }))
+
+    }).catch(error => console.log(`ERROR MESSAGE: ${error}`))
+
   }
 
   atualizar(novoItem) {
