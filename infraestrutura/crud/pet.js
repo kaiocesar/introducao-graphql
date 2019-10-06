@@ -27,7 +27,8 @@ class Pet {
 
   adicionar(item) {
     const { nome, donoId, tipo, observacoes } = item
-    const sql = `INSERT INTO Pets(nome, donoId, tipo, observacoes) VALUES('${nome}', ${donoId}, '${tipo}', '${observacoes}')`
+    const sql = `INSERT INTO Pets(nome, donoId, tipo, observacoes)\
+        VALUES('${nome}', ${donoId}, '${tipo}', '${observacoes}')`
     return executaQuery(sql).then(resposta => ({
       id: resposta.insertId,
       nome,
