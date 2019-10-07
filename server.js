@@ -19,7 +19,8 @@ const resolvers = {
     status: () => 'server rodando...',
     clientes: () => Clientes.listar(),
     cliente: (root, { id }) => Clientes.buscarPorId(id),
-    pets: () => Pets.listar()
+    pets: () => Pets.listar(),
+    pet: (root, { id }) => Pets.buscarPorId(id)
     
   },
   Mutation: {

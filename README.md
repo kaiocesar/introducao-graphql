@@ -87,3 +87,20 @@ query {
   }
 }
 ``` 
+
+#### Retornar o pet com as informações do dono
+```
+query {
+  pet(id: 1) {
+    id
+    nome
+    tipo
+    observacoes
+    dono {
+      id
+      nome
+      cpf
+    }    
+  }
+}
+```
